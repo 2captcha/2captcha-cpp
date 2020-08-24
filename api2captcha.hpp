@@ -73,6 +73,8 @@ protected:
    captcha_t () {};
    
 public:
+   // make polymorphic
+   virtual ~captcha_t () {}
 
    const std::string & id () const { return id_; }
    const std::string & code () const { return code_; }
@@ -459,8 +461,7 @@ class client_t
       void solve (captcha_t & captcha)
       {
 	 std::map<std::string, int> wait_options;
-
-	 if (reinterpret_cast<recaptcha_t *>(&captcha))
+	 if (dynamic_cast<recaptcha_t *>(&captcha))
 	    wait_options["timeout"] = recaptcha_timeout_;
 
 	 solve (captcha, wait_options);
