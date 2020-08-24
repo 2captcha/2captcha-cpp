@@ -476,7 +476,6 @@ class client_t
 	    timeout = i->second;
 
 	 const auto id = send (captcha, timeout);
-	 printf ("sent '%s'\n", id.c_str ());
 	 captcha.set_id (id);
 
 	 if (!last_captcha_has_callback_)
