@@ -213,7 +213,7 @@ captcha.set_cols (3);
 captcha.set_previous_id (0);
 captcha.set_can_skip (false);
 captcha.set_lang ("en");
-captcha.set_hint_img (new File("path/to/hint.jpg"));
+captcha.set_hint_img_file ("path/to/hint.jpg");
 captcha.set_hint_text ("Select all images with an Orange");
 ```
 
