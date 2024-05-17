@@ -21,6 +21,7 @@ The easiest way to quickly integrate [2Captcha] into your code to automate solvi
   - [send / getResult](#send--getresult)
   - [balance](#balance)
   - [report](#report)
+- [Proxies](#proxies)
 - [Error handling](#error-handling)
 
 
@@ -279,6 +280,11 @@ solver.report (captcha.id (), true); // captcha solved correctly
 solver.report (captcha.id (), false); // captcha solved incorrectly
 ```
 
+## Proxies
+You can pass your proxy as an additional argument for methods: recaptcha, funcaptcha, geetest, hcaptcha, keycaptcha, capy puzzle, and etc. The proxy will be forwarded to the API to solve the captcha.
+
+We have our own proxies that we can offer you. [Buy residential proxies] for avoid restrictions and blocks. [Quick start].
+
 ## Error handling
 If case of an error captcha solver throws an exception. It's important to properly handle these cases. We recommend to use `try catch` to handle exceptions.
 
@@ -300,9 +306,13 @@ catch (api2captcha::timeout_exception_t & e)
     // captcha is not solved so far
 }
 ```
+
+<!-- Shared links -->
 [examples directory]: /examples/
 [2Captcha]: https://2captcha.com/
 [2captcha sofware catalog]: https://2captcha.com/software
 [pingback settings]: https://2captcha.com/setting/pingback
 [post options]: https://2captcha.com/2captcha-api#normal_post
 [list of supported languages]: https://2captcha.com/2captcha-api#language
+[Buy residential proxies]: https://2captcha.com/proxy/residential-proxies
+[Quick start]: https://2captcha.com/proxy?openAddTrafficModal=true
