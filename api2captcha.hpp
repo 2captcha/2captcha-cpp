@@ -357,7 +357,7 @@ class client_t
       static const constexpr char * HOST = "2captcha.com";
       
       std::string api_key_;
-      int soft_id_ = 4586;
+      int soft_id_ = 0;
       std::string callback_;
       int default_timeout_ = 10; // sec
       int recaptcha_timeout_ = 600; // sec
