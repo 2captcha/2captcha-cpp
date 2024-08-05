@@ -8,7 +8,8 @@ LIB_DIR	+= -L. \
 
 DEFINES += -DAPI_KEY=\"$(API_KEY)\"
 
-LIB_FILES = -lcurl -lcares -lssl -lcrypto -lz -lpthread -lidn2 
+LIB_FILES = -lcurl
+# -lcares -lssl -lcrypto -lz -lpthread -lidn2 
 
 OPTIM		= -O3 -g 
 
