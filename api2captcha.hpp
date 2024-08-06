@@ -350,6 +350,37 @@ public:
    void set_lang (const std::string & s) { set_param ("lang", s); };
 };
 
+class lemin : public captcha_t
+{
+public:
+   lemin ()
+   {
+      set_param ("method", "lemin");
+   }
+
+   void setApiServer(const std::string & s) { set_param ("api_server", s); };
+   void serCaptchaid(const std::string & s) { set_param ("captcha_id", s); };
+   void setUrl(const std::string & s) { set_param ("pageurl", s); };
+/*
+   void set_site_key (const std::string & s) { set_param ("captchakey", s); };
+   void set_url (const std::string & s) { set_param ("pageurl", s); };
+   void set_api_server (const std::string & s) { set_param ("api_server", s); };
+   */
+   /*
+   
+    public void setApiServer(String apiServer) {
+        params.put("api_server", apiServer);
+    }
+
+    public void setСaptchaId(String captchaId) {
+        params.put("captcha_id", captchaId);
+    }    
+
+    public void setUrl(String url) {
+        params.put("pageurl", url);
+    }*/
+};
+
 class client_t
 {
    class impl_t
