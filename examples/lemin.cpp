@@ -12,15 +12,15 @@ int main (int ac, char ** av)
    client.set_http_client (&http);
    client.set_api_key (API_KEY);
 
-   api2captcha::capy_t cap;
-   cap.set_site_key ("PUZZLE_Abc1dEFghIJKLM2no34P56q7rStu8v");
-   cap.set_url ("https://www.mysite.com/captcha/");
-   cap.set_api_server ("https://jp.api.capy.me/");
+   api2captcha::lemin lemin;
+   lemin.serCaptchaid ("CROPPED_d3d4d56_73ca4008925b4f83a8bed59c2dd0df6d");
+   lemin.setUrl ("http://sat2.aksigorta.com.tr");
+   lemin.setApiServer("api.leminnow.com");
 
    try
    {
-      client.solve (cap);
-      printf ("code '%s'\n", cap.code ().c_str ());
+      client.solve (lemin);
+      printf ("code '%s'\n", lemin.code ().c_str ());
    }
    catch (std::exception & e)
    {
@@ -29,16 +29,3 @@ int main (int ac, char ** av)
 
    return 0;   
 }
-/*
-        Lemin captcha = new Lemin();      
-        captcha.setСaptchaId("CROPPED_d3d4d56_73ca4008925b4f83a8bed59c2dd0df6d");
-        captcha.setUrl("http://sat2.aksigorta.com.tr");
-        captcha.setApiServer("api.leminnow.com");
-
-        try {
-            solver.solve(captcha);
-            System.out.println("Captcha solved: " + captcha.getCode());
-        } catch (Exception e) {
-            System.out.println("Error occurred: " + e.getMessage());
-        }
-        */

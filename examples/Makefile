@@ -55,6 +55,9 @@ rotate:		rotate.o
 text:		text.o
 		$(GPP) ${OPTIM} -Wall -o text text.o $(LIB_DIR) $(LIB_FILES)
 
+lemin:		lemin.o
+		$(GPP) ${OPTIM} -Wall -o lemin lemin.o $(LIB_DIR) $(LIB_FILES)
+
 .cpp.o:
 		$(GPP) $(CC_OPT) $(DEFINES) -o $@ -c $< 
 
