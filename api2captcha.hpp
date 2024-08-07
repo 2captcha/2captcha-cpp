@@ -359,7 +359,7 @@ public:
    }
 
    void setApiServer(const std::string & s) { set_param ("api_server", s); };
-   void serCaptchaid(const std::string & s) { set_param ("captcha_id", s); };
+   void setCaptchaid(const std::string & s) { set_param ("captcha_id", s); };
    void setUrl(const std::string & s) { set_param ("pageurl", s); };
 /*
    void set_site_key (const std::string & s) { set_param ("captchakey", s); };
