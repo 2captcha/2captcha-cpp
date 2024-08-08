@@ -268,6 +268,14 @@ captcha.set_lang ("en");
 captcha.set_hint_img_file ("path/to/hint.jpg");
 captcha.set_hint_text ("Put the images in the correct way up");
 ```
+### Lemin
+Use this method to solve Lemin and obtain a token to bypass the protection.
+
+```c++
+api2captcha::lemin lemin;
+lemin.setCaptchaid ("CROPPED_d3d4d56_73ca4008925b4f83a8bed59c2dd0df6d");
+lemin.setUrl ("http://sat2.aksigorta.com.tr");
+lemin.setApiServer("api.leminnow.com");
 
 ## Other methods
 
