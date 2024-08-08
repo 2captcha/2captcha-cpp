@@ -62,7 +62,7 @@ lemin:		lemin.o
 		$(GPP) $(CC_OPT) $(DEFINES) -o $@ -c $< 
 
 clean:
-		rm -rf core *~ *.o normal canvas capy coordinates funcaptcha geetest grid hcaptcha keycaptcha recaptcha rotate text
+		rm -rf core *~ *.o normal canvas capy coordinates funcaptcha geetest grid hcaptcha keycaptcha recaptcha rotate text lemin
 
 strip:		$(PROG)
 		strip $(PROG)
