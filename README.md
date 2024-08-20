@@ -274,8 +274,8 @@ Use this method to solve Lemin and obtain a token to bypass the protection.
 
 ```c++
 api2captcha::lemin lemin;
-lemin.setCaptchaid ("CROPPED_d3d4d56_73ca4008925b4f83a8bed59c2dd0df6d");
-lemin.setUrl ("http://sat2.aksigorta.com.tr");
+lemin.setCaptchaid ("CROPPED_5a29582_ca114c2f3314482c84cd32fc7d2feb63");
+lemin.setUrl ("https://2captcha.com/demo/lemin");
 lemin.setApiServer("api.leminnow.com");
 ```
 
