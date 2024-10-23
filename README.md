@@ -7,13 +7,11 @@
 <a href="https://github.com/2captcha/2captcha-java"><img src="https://github.com/user-attachments/assets/a3d923f6-4fec-4c07-ac50-e20da6370911" width="50" height="30"></a>
 <a href="https://github.com/2captcha/2captcha-csharp"><img src="https://github.com/user-attachments/assets/f4d449de-780b-49ed-bb0a-b70c82ec4b32" width="38" height="30"></a>
 
-# C++ Module for 2Captcha API
+# C++ Module for 2Captcha API (captcha solver)
 The easiest way to quickly integrate [2Captcha] into your code to automate solving of any type of captcha.
 Examples of API requests for different captcha types are available on the [C++ captcha solver](https://github.com/2captcha/2captcha-cpp/tree/master/examples) examples directory.
 
-
-
-- [C++ Module for 2Captcha API](#c-module-for-2captcha-api)
+- [C++ Module for 2Captcha API (captcha solver)](#c-module-for-2captcha-api-captcha-solver)
   - [Installation](#installation)
   - [Configuration](#configuration)
   - [Solve captcha](#solve-captcha)
@@ -30,6 +28,7 @@ Examples of API requests for different captcha types are available on the [C++ c
     - [Canvas](#canvas)
     - [ClickCaptcha](#clickcaptcha)
     - [Rotate](#rotate)
+    - [Lemin](#lemin)
   - [Other methods](#other-methods)
     - [send / getResult](#send--get_result)
     - [balance](#balance)
@@ -269,6 +268,15 @@ captcha.set_angle (40);
 captcha.set_lang ("en");
 captcha.set_hint_img_file ("path/to/hint.jpg");
 captcha.set_hint_text ("Put the images in the correct way up");
+```
+### Lemin
+Use this method to solve Lemin and obtain a token to bypass the protection.
+
+```c++
+api2captcha::lemin lemin;
+lemin.setCaptchaid ("CROPPED_5a29582_ca114c2f3314482c84cd32fc7d2feb63");
+lemin.setUrl ("https://2captcha.com/demo/lemin");
+lemin.setApiServer("api.leminnow.com");
 ```
 
 ## Other methods

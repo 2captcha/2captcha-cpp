@@ -8,7 +8,8 @@ LIB_DIR	+= -L. \
 
 DEFINES += -DAPI_KEY=\"$(API_KEY)\"
 
-LIB_FILES = -lcurl -lcares -lssl -lcrypto -lz -lpthread -lidn2 
+LIB_FILES = -lcurl
+# -lcares -lssl -lcrypto -lz -lpthread -lidn2 
 
 OPTIM		= -O3 -g 
 
@@ -54,11 +55,14 @@ rotate:		rotate.o
 text:		text.o
 		$(GPP) ${OPTIM} -Wall -o text text.o $(LIB_DIR) $(LIB_FILES)
 
+lemin:		lemin.o
+		$(GPP) ${OPTIM} -Wall -o lemin lemin.o $(LIB_DIR) $(LIB_FILES)
+
 .cpp.o:
 		$(GPP) $(CC_OPT) $(DEFINES) -o $@ -c $< 
 
 clean:
-		rm -rf core *~ *.o normal canvas capy coordinates funcaptcha geetest grid hcaptcha keycaptcha recaptcha rotate text
+		rm -rf core *~ *.o normal canvas capy coordinates funcaptcha geetest grid hcaptcha keycaptcha recaptcha rotate text lemin
 
 strip:		$(PROG)
 		strip $(PROG)
