@@ -21,7 +21,6 @@ Examples of API requests for different captcha types are available on the [C++ c
     - [ReCaptcha v3](#recaptcha-v3)
     - [FunCaptcha](#funcaptcha)
     - [GeeTest](#geetest)
-    - [hCaptcha](#hcaptcha)
     - [KeyCaptcha](#keycaptcha)
     - [Capy](#capy)
     - [Grid (ReCaptcha V2 Old Method)](#grid)
@@ -186,16 +185,6 @@ captcha.set_url ("https://mysite.com/captcha.html");
 captcha.set_proxy ("HTTPS", "login:password@IP_address:PORT");
 ```
 
-### hCaptcha
-Method to solve GeeTest puzzle captcha. Returns a set of tokens as JSON.
-
-```c++
-api2captcha::hcaptcha_t captcha;
-captcha.set_site_key ("10000000-ffff-ffff-ffff-000000000001");
-captcha.set_url ("https://www.site.com/page/");
-captcha.set_proxy ("HTTPS", "login:password@IP_address:PORT");
-```
-
 ### KeyCaptcha
 Token-based method to solve KeyCaptcha.
 
@@ -306,7 +295,7 @@ solver.report (captcha.id (), false); // captcha solved incorrectly
 ```
 
 ## Proxies
-You can pass your proxy as an additional argument for methods: recaptcha, funcaptcha, geetest, hcaptcha, keycaptcha, capy puzzle, and etc. The proxy will be forwarded to the API to solve the captcha.
+You can pass your proxy as an additional argument for methods: recaptcha, funcaptcha, geetest, keycaptcha, capy puzzle, and etc. The proxy will be forwarded to the API to solve the captcha.
 
 We have our own proxies that we can offer you. [Buy residential proxies] for avoid restrictions and blocks. [Quick start].
 
