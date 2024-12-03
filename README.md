@@ -61,7 +61,7 @@ client.set_polling_interval (10);
 
 |Option|Default value|Description|
 |---|---|---|
-|soft_id|-|your software ID obtained after publishing in [2captcha sofware catalog]|
+|soft_id|-|your software ID obtained after publishing in [2captcha software catalog]|
 |callback|-|URL of your web-sever that receives the captcha recognition result. The URl should be first registered in [pingback settings] of your account|
 |default_timeout|120|Timeout in seconds for all captcha types except ReCaptcha. Defines how long the module tries to get the answer from `res.php` API endpoint|
 |recaptcha_timeout|600|Timeout for ReCaptcha in seconds. Defines how long the module tries to get the answer from `res.php` API endpoint|
@@ -344,7 +344,7 @@ The graphics and trademarks included in this repository are not covered by the M
 <!-- Shared links -->
 [examples directory]: /examples/
 [2Captcha]: https://2captcha.com/
-[2captcha sofware catalog]: https://2captcha.com/software
+[2captcha software catalog]: https://2captcha.com/software
 [pingback settings]: https://2captcha.com/setting/pingback
 [post options]: https://2captcha.com/2captcha-api#normal_post
 [list of supported languages]: https://2captcha.com/2captcha-api#language
