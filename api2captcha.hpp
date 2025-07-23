@@ -9,6 +9,7 @@
 #include <stdexcept>
 #include <thread>
 #include <vector>
+#include <functional>
 
 namespace api2captcha
 {
@@ -372,6 +373,7 @@ namespace api2captcha
          int polling_interval_ = 10;   // sec
          bool last_captcha_has_callback_ = false;
          http_client_i *http_ = nullptr;
+         std::function<void(const std::chrono::seconds)> polling_callback_ = nullptr;
 
          void check_http_response(const std::string &r)
          {
@@ -469,6 +471,7 @@ namespace api2captcha
          void set_default_timeout(const int sec) { default_timeout_ = sec; }
          void set_recaptcha_timeout(const int sec) { recaptcha_timeout_ = sec; }
          void set_polling_interval(const int sec) { polling_interval_ = sec; }
+         void set_polling_callback(std::function<void(const std::chrono::seconds)>&& callback) { polling_callback_ = std::move(callback); }
 
          void solve(captcha_t &captcha)
          {
@@ -514,7 +517,15 @@ namespace api2captcha
             double interval = 0;
             do
             {
-               std::this_thread::sleep_for(std::chrono::seconds(polling_interval));
+               const auto& polling_interval_seconds = std::chrono::seconds(polling_interval);
+               if (polling_callback_)
+               {
+                  polling_callback_(polling_interval_seconds);
+               }
+               else 
+               {
+                  std::this_thread::sleep_for(polling_interval_seconds);
+               }
 
                try
                {
@@ -629,6 +640,7 @@ namespace api2captcha
       void set_default_timeout(const int sec) { return i_->set_default_timeout(sec); }
       void set_recaptcha_timeout(const int sec) { return i_->set_recaptcha_timeout(sec); }
       void set_polling_interval(const int sec) { return i_->set_polling_interval(sec); }
+      void set_polling_callback(std::function<void(const std::chrono::seconds)>&& callback) { i_->set_polling_callback(std::move(callback)); }
 
       void solve(captcha_t &captcha) { return i_->solve(captcha); }
 
