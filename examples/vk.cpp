@@ -1,13 +1,24 @@
 #include <cstdio>
+#include <filesystem>
+//#include <iostream>
 
 #include "curl_http.hpp"
 #include "api2captcha.hpp"
 
+using namespace std;
+
 int main (int ac, char ** av)
 {
+   printf ("Current path is : '%s'\n", filesystem::current_path().c_str ());
+
+  /*
+   cout << "Current path is " << filesystem::current_path()
+         << endl;
+*/
+
    if (ac < 3)
    {
-      printf ("Usage: ./vk path/to/image.jpg \"hint text\"\n");
+      printf ("Usage: ./vk path/to/image.jpg \"steps\"\n");
       return 0;
    }
    
