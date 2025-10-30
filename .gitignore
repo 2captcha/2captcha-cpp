@@ -1,1 +1,16 @@
 *~
+.codelite
+.idea
+.vscode
+
+*.mk
+*.project
+*.workspace
+
+Makefile
+
+*.d
+*.o
+canvas
+lemin
+text
