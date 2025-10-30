@@ -1,6 +1,6 @@
 #include <cstdio>
 #include <filesystem>
-//#include <iostream>
+#include <iostream>
 
 #include "curl_http.hpp"
 #include "api2captcha.hpp"
@@ -11,29 +11,21 @@ int main (int ac, char ** av)
 {
    printf ("Current path is : '%s'\n", filesystem::current_path().c_str ());
 
-  /*
-   cout << "Current path is " << filesystem::current_path()
-         << endl;
-*/
+   string current_path = filesystem::current_path().c_str();
+   string image = current_path + "/images/vk.jpg";
 
-   if (ac < 3)
-   {
-      printf ("Usage: ./vk path/to/image.jpg \"steps\"\n");
-      return 0;
-   }
-   
+   cout << "Image path is " << image << endl;
+
    api2captcha::curl_http_t http;
-   http.set_verbose (true);
+   //http.set_verbose (true);
 
    api2captcha::client_t client;
    client.set_http_client (&http);
    client.set_api_key (API_KEY);
 
-   assert (ac > 2);
-
-   api2captcha::canvas_t cap;
-   cap.set_file (av[1]);
-   cap.set_hint_text (av[2]);
+   api2captcha::vk_t cap;
+   cap.set_file (image);
+   cap.set_steps ("[5,12,22,24,21,23,10,7,2,8,19,18,8,24,21,22,11,14,16,5,18,20,4,21,12,6,0,0,11,12,8,20,19,3,14,8,9,13,16,24,18,3,2,23,8,12,6,1,11,0,20,15,19,22,17,24,8,0,12,5,19,14,11,6,7,14,23,24,23,20,4,20,6,12,4,17,4,18,6,20,17,5,23,7,10,2,8,9,5,4,17,24,11,14,4,10,12,22,21,2]");
 
    try
    {
