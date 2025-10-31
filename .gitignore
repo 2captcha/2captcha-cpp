@@ -14,3 +14,10 @@ Makefile
 canvas
 lemin
 text
+/examples/capy
+/examples/coordinates
+/examples/funcaptcha
+/examples/geetest
+/examples/grid
+/examples/normal
+/examples/vk
