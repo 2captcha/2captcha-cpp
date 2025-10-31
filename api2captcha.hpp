@@ -362,8 +362,9 @@ namespace api2captcha
    class vk_t : public captcha_t
    {
    public:
-      vk_t()
+      vk_t(const std::string &method)
       {
+         set_param("method", method);
       }
 
       void set_file(const std::string &path) { captcha_t::set_file("file", path); }
