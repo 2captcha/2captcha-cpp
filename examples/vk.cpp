@@ -11,13 +11,15 @@ using namespace std;
 
 int main (int ac, char ** av)
 {
-   /*
-   auto encoded_str =  base64::to_base64("Hello, World!");
-   std::cout << encoded_str << std::endl; // SGVsbG8sIFdvcmxkIQ==
-   auto decoded_str = base64::from_base64("SGVsbG8sIFdvcmxkIQ==");
-   std::cout << decoded_str << std::endl; // Hello, World!
-*/
-   printf ("Current path is : '%s'\n", filesystem::current_path().c_str ());
+   //printf ("Current path is : '%s'\n", filesystem::current_path().c_str ());
+   printf ("ac is : '%s'\n", std::to_string(ac).c_str());
+   printf ("av is : '%s'\n", av[0]);
+
+   if (ac < 2)
+   {
+      printf ("Usage: ./vk \"API KEY\"\n");
+      return 0;
+   }
 
    string current_path = filesystem::current_path().c_str();
    string image = current_path + "/images/vk.jpg";
@@ -29,7 +31,7 @@ int main (int ac, char ** av)
 
    api2captcha::client_t client;
    client.set_http_client (&http);
-   client.set_api_key (API_KEY);
+   client.set_api_key (av[1]);
 
 
    std::string vkImage = "vkimage";
