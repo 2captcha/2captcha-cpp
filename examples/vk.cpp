@@ -2,8 +2,6 @@
 #include <filesystem>
 #include <iostream>
 
-//#include "base64.hpp"
-
 #include "curl_http.hpp"
 #include "api2captcha.hpp"
 
@@ -11,10 +9,6 @@ using namespace std;
 
 int main (int ac, char ** av)
 {
-   //printf ("Current path is : '%s'\n", filesystem::current_path().c_str ());
-   printf ("ac is : '%s'\n", std::to_string(ac).c_str());
-   printf ("av is : '%s'\n", av[0]);
-
    if (ac < 2)
    {
       printf ("Usage: ./vk \"API KEY\"\n");
@@ -23,8 +17,6 @@ int main (int ac, char ** av)
 
    string current_path = filesystem::current_path().c_str();
    string image = current_path + "/images/vk.jpg";
-
-   cout << "Image path is " << image << endl;
 
    api2captcha::curl_http_t http;
    http.set_verbose (true);
