@@ -358,6 +358,17 @@ namespace api2captcha
       void setUrl(const std::string &s) { set_param("pageurl", s); };
    };
 
+   class prosopo_t : public captcha_t
+   {
+   public:
+      prosopo_t(){
+         set_param("method", "prosopo");
+      }
+
+      void set_site_key(const std::string &s) { set_param("sitekey", s); };
+      void set_url(const std::string &s) { set_param("pageurl", s); };
+   };
+
    class client_t
    {
       class impl_t
