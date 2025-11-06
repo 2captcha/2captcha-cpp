@@ -28,6 +28,7 @@ Examples of API requests for different captcha types are available on the [C++ c
     - [ClickCaptcha](#clickcaptcha)
     - [Rotate](#rotate)
     - [Lemin](#lemin)
+    - [Prosopo](#prosopo)
   - [Other methods](#other-methods)
     - [send / getResult](#send--get_result)
     - [balance](#balance)
@@ -258,6 +259,7 @@ captcha.set_lang ("en");
 captcha.set_hint_img_file ("path/to/hint.jpg");
 captcha.set_hint_text ("Put the images in the correct way up");
 ```
+
 ### Lemin
 Use this method to solve Lemin and obtain a token to bypass the protection.
 
@@ -268,6 +270,14 @@ lemin.setUrl ("https://2captcha.com/demo/lemin");
 lemin.setApiServer("api.leminnow.com");
 ```
 
+### Prosopo
+Use this method to solve Prosopo and obtain a token to bypass the protection.
+
+```c++
+api2captcha::prosopo_t cap;
+cap.set_site_key ("5EZVvsHMrKCFKp5NYNoTyDjTjetoVo1Z4UNNbTwJf1GfN6Xm");
+cap.set_url ("https://www.twickets.live/");
+```
 ## Other methods
 
 ### send / get_result
