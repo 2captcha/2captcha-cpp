@@ -358,6 +358,21 @@ namespace api2captcha
       void setUrl(const std::string &s) { set_param("pageurl", s); };
    };
 
+   class vk_t : public captcha_t
+   {
+   public:
+      vk_t(const std::string &method)
+      {
+         set_param("method", method);
+      }
+
+      void set_file(const std::string &path) { captcha_t::set_file("file", path); }
+      void set_base64(const std::string &base64) { set_param("body", base64); }
+      void set_steps(const std::string &steps) { set_param("steps", steps); }
+      void set_redirect_uri(const std::string &redirect_uri) { set_param("redirect_uri", redirect_uri); }
+      void set_user_agent(const std::string &user_agent) { set_param("userAgent", user_agent); }
+   };
+
    class client_t
    {
       class impl_t
