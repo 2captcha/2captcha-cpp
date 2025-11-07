@@ -358,7 +358,6 @@ namespace api2captcha
       void setUrl(const std::string &s) { set_param("pageurl", s); };
    };
 
-   //vk captcha
    class vk_t : public captcha_t
    {
    public:
