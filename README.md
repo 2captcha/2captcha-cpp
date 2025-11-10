@@ -28,6 +28,8 @@ Examples of API requests for different captcha types are available on the [C++ c
     - [ClickCaptcha](#clickcaptcha)
     - [Rotate](#rotate)
     - [Lemin](#lemin)
+    - [VK Captcha](#vk-captcha)
+    - [VK Image](#vk-image)
   - [Other methods](#other-methods)
     - [send / getResult](#send--get_result)
     - [balance](#balance)
@@ -266,6 +268,31 @@ api2captcha::lemin lemin;
 lemin.setCaptchaid ("CROPPED_5a29582_ca114c2f3314482c84cd32fc7d2feb63");
 lemin.setUrl ("https://2captcha.com/demo/lemin");
 lemin.setApiServer("api.leminnow.com");
+```
+
+### VK Image
+Use this method to solve vk captcha and obtain a token to bypass the protection.
+
+```c++
+std::string method = "vkimage";
+const char *c_strMethod = method.c_str();
+
+api2captcha::vk_t cap (c_strMethod);
+cap.set_file (image);
+cap.set_steps ("[5,12,22,24,21,23,10,7,2,8,19,18,8,24,21,22,11,14,16,5,18,20,4,21,12,6,0,0,11,12,8,20,19,3,14,8,9,13,16,24,18,3,2,23,8,12,6,1,11,0,20,15,19,22,17,24,8,0,12,5,19,14,11,6,7,14,23,24,23,20,4,20,6,12,4,17,4,18,6,20,17,5,23,7,10,2,8,9,5,4,17,24,11,14,4,10,12,22,21,2]");
+```
+
+### VK Captcha
+Use this method to solve vk captcha and obtain a token to bypass the protection.
+
+```c++
+std::string method = "vkcaptcha";
+const char *c_strMethod = method.c_str();
+
+api2captcha::vk_t cap (c_strMethod);
+cap.set_redirect_uri("https://id.vk.com/not_robot_captcha?domain=vk.com&session_token=eyJ....HGsc5B4LyvjA&variant=popup&blank=1");
+cap.set_user_agent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36");
+cap.set_proxy("http", "1.2.3.4");
 ```
 
 ## Other methods
