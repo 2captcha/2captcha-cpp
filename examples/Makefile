@@ -17,7 +17,7 @@ GPP		= g++
 
 CC_OPT		= $(OPTIM) -std=c++11 -Wall -pipe $(INC_DIR)
 
-all:	normal canvas capy coordinates funcaptcha geetest grid keycaptcha recaptcha rotate text prosopo
+all:	normal canvas capy coordinates funcaptcha geetest grid keycaptcha recaptcha rotate text prosopo captchafox
 
 normal:		normal.o
 		$(GPP) ${OPTIM} -Wall -o normal normal.o $(LIB_DIR) $(LIB_FILES)
@@ -60,11 +60,14 @@ lemin:		lemin.o
 prosopo:	prosopo.o
 		$(GPP) ${OPTIM} -Wall -o prosopo prosopo.o $(LIB_DIR) $(LIB_FILES)
 
+captchafox:	captchafox.o
+		$(GPP) ${OPTIM} -Wall -o captchafox captchafox.o $(LIB_DIR) $(LIB_FILES)
+
 .cpp.o:
 		$(GPP) $(CC_OPT) $(DEFINES) -o $@ -c $< 
 
 clean:
-		rm -rf core *~ *.o normal canvas capy coordinates funcaptcha geetest grid hcaptcha keycaptcha recaptcha rotate text lemin prosopo
+		rm -rf core *~ *.o normal canvas capy coordinates funcaptcha geetest grid hcaptcha keycaptcha recaptcha rotate text lemin prosopo captchafox
 
 strip:		$(PROG)
 		strip $(PROG)

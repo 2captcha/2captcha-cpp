@@ -14,6 +14,7 @@ Makefile
 canvas
 lemin
 text
+
 /examples/capy
 /examples/coordinates
 /examples/funcaptcha
@@ -23,3 +24,4 @@ text
 /examples/vk
 /examples/recaptcha
 /examples/prosopo
+/examples/captchafox

@@ -82,6 +82,11 @@ namespace api2captcha
       void set_id(const std::string &s) { id_ = s; }
       void set_code(const std::string &s) { code_ = s; }
 
+      void set_user_agent(const std::string &s) 
+      {
+         params_["userAgent"] = s;
+      };
+
       void set_proxy(const std::string &type, const std::string &url)
       {
          params_["proxytype"] = type;
@@ -368,6 +373,18 @@ namespace api2captcha
       void set_site_key(const std::string &s) { set_param("sitekey", s); };
       void set_url(const std::string &s) { set_param("pageurl", s); };
    };
+
+   class captchafox_t : public captcha_t
+   {
+   public:
+      captchafox_t(){
+         set_param("method", "captchafox");
+      }
+
+      void set_site_key(const std::string &s) { set_param("sitekey", s); };
+      void set_url(const std::string &s) { set_param("pageurl", s); };
+   };
+
 
    class client_t
    {

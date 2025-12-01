@@ -1,0 +1,9 @@
+cd examples
+make all
+make clean
+
+make prosopo
+./prosopo 06c869c488704f-key
+
+make recaptcha API_KEY="06c869c488704f6-key"
+./recaptcha

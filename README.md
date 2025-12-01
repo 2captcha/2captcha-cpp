@@ -29,6 +29,7 @@ Examples of API requests for different captcha types are available on the [C++ c
     - [Rotate](#rotate)
     - [Lemin](#lemin)
     - [Prosopo](#prosopo)
+    - [Captchafox](#captchafox)
   - [Other methods](#other-methods)
     - [send / getResult](#send--get_result)
     - [balance](#balance)
@@ -278,6 +279,19 @@ api2captcha::prosopo_t cap;
 cap.set_site_key ("5EZVvsHMrKCFKp5NYNoTyDjTjetoVo1Z4UNNbTwJf1GfN6Xm");
 cap.set_url ("https://www.twickets.live/");
 ```
+
+### Captchafox
+Use this method to solve Captchafox and obtain a token to bypass the protection.
+
+```c++
+api2captcha::captchafox_t cap;
+cap.set_site_key ("sk_ILKWNruBBVKDOM7dZs59KHnDLEWiH");
+cap.set_url ("https://mysite.com/page/with/captchafox");
+cap.set_user_agent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36");
+cap.set_proxy("HTTPS", "login:password@IP_address:PORT");
+```
+
+
 ## Other methods
 
 ### send / get_result
