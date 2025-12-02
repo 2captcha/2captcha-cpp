@@ -15,9 +15,9 @@ OPTIM		= -O3 -g
 
 GPP		= g++
 
-CC_OPT		= $(OPTIM) -std=c++11 -Wall -pipe $(INC_DIR)
+CC_OPT		= $(OPTIM) -std=c++17 -Wall -pipe $(INC_DIR)
 
-all:	normal canvas capy coordinates funcaptcha geetest grid keycaptcha recaptcha rotate text prosopo captchafox temu
+all:	normal canvas capy coordinates funcaptcha geetest grid hcaptcha keycaptcha recaptcha rotate text vkimage vkcaptcha temu
 
 normal:		normal.o
 		$(GPP) ${OPTIM} -Wall -o normal normal.o $(LIB_DIR) $(LIB_FILES)
@@ -40,7 +40,8 @@ geetest:	geetest.o
 grid:		grid.o
 		$(GPP) ${OPTIM} -Wall -o grid grid.o $(LIB_DIR) $(LIB_FILES)
 
-#hcaptcha:	hcaptcha.o $(GPP) ${OPTIM} -Wall -o hcaptcha hcaptcha.o $(LIB_DIR) $(LIB_FILES)
+hcaptcha:	hcaptcha.o
+		$(GPP) ${OPTIM} -Wall -o hcaptcha hcaptcha.o $(LIB_DIR) $(LIB_FILES)
 
 keycaptcha:	keycaptcha.o
 		$(GPP) ${OPTIM} -Wall -o keycaptcha keycaptcha.o $(LIB_DIR) $(LIB_FILES)
@@ -57,11 +58,11 @@ text:		text.o
 lemin:		lemin.o
 		$(GPP) ${OPTIM} -Wall -o lemin lemin.o $(LIB_DIR) $(LIB_FILES)
 
-prosopo:	prosopo.o
-		$(GPP) ${OPTIM} -Wall -o prosopo prosopo.o $(LIB_DIR) $(LIB_FILES)
-
-captchafox:	captchafox.o
-		$(GPP) ${OPTIM} -Wall -o captchafox captchafox.o $(LIB_DIR) $(LIB_FILES)
+vkimage:	vkimage.o
+		$(GPP) ${OPTIM} -Wall -o vkimage vkimage.o $(LIB_DIR) $(LIB_FILES)
+		
+vkcaptcha:	vkcaptcha.o
+		$(GPP) ${OPTIM} -Wall -o vkcaptcha vkcaptcha.o $(LIB_DIR) $(LIB_FILES)
 
 temu:	temu.o
 		$(GPP) ${OPTIM} -Wall -o temu temu.o $(LIB_DIR) $(LIB_FILES)
@@ -70,7 +71,7 @@ temu:	temu.o
 		$(GPP) $(CC_OPT) $(DEFINES) -o $@ -c $< 
 
 clean:
-		rm -rf core *~ *.o normal canvas capy coordinates funcaptcha geetest grid hcaptcha keycaptcha recaptcha rotate text lemin prosopo captchafox temu
+		rm -rf core *~ *.o normal canvas capy coordinates funcaptcha geetest grid hcaptcha keycaptcha recaptcha rotate text lemin vkimage vkcaptcha temu
 
 strip:		$(PROG)
 		strip $(PROG)
