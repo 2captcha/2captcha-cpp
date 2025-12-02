@@ -385,6 +385,19 @@ namespace api2captcha
       void set_url(const std::string &s) { set_param("pageurl", s); };
    };
 
+   class temu_t : public captcha_t
+   {
+   public:
+      temu_t(const std::string &method)
+      {
+         set_param("method", method);
+      }
+
+      void set_body(const std::string &path) { captcha_t::set_file("body", path); }
+      void set_part1(const std::string &path) { captcha_t::set_file("part1", path); }
+      void set_part2(const std::string &path) { captcha_t::set_file("part2", path); }
+      void set_part3(const std::string &path) { captcha_t::set_file("part3", path); }
+   };
 
    class client_t
    {
