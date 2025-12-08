@@ -30,6 +30,7 @@ Examples of API requests for different captcha types are available on the [C++ c
     - [Lemin](#lemin)
     - [Prosopo](#prosopo)
     - [Captchafox](#captchafox)
+    - [Temu](#temu)
   - [Other methods](#other-methods)
     - [send / getResult](#send--get_result)
     - [balance](#balance)
@@ -289,6 +290,23 @@ cap.set_site_key ("sk_ILKWNruBBVKDOM7dZs59KHnDLEWiH");
 cap.set_url ("https://mysite.com/page/with/captchafox");
 cap.set_user_agent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36");
 cap.set_proxy("HTTPS", "login:password@IP_address:PORT");
+```
+
+### Temu
+Use this method to solve Temu and obtain a token to bypass the protection.
+
+```c++
+   api2captcha::temu_t cap (c_strMethod);
+
+   string bodyB64Str = getFile2Base64(bodyFilePath);
+   string part1B64Str = getFile2Base64(part1FilePath);
+   string part2B64Str = getFile2Base64(part2FilePath);
+   string part3B64Str = getFile2Base64(part3FilePath);
+
+   cap.set_body(bodyB64Str);
+   cap.set_part1(part1B64Str);
+   cap.set_part2(part2B64Str);
+   cap.set_part3(part3B64Str);
 ```
 
 
