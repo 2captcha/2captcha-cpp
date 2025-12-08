@@ -393,10 +393,10 @@ namespace api2captcha
          set_param("method", method);
       }
 
-      void set_body(const std::string &path) { captcha_t::set_file("body", path); }
-      void set_part1(const std::string &path) { captcha_t::set_file("part1", path); }
-      void set_part2(const std::string &path) { captcha_t::set_file("part2", path); }
-      void set_part3(const std::string &path) { captcha_t::set_file("part3", path); }
+      void set_body(const std::string &path) { captcha_t::set_param("body", path); }
+      void set_part1(const std::string &path) { captcha_t::set_param("part1", path); }
+      void set_part2(const std::string &path) { captcha_t::set_param("part2", path); }
+      void set_part3(const std::string &path) { captcha_t::set_param("part3", path); }
    };
 
    class client_t
