@@ -6,6 +6,8 @@
 #include <vector>
 #include <string>
 
+using namespace std;
+
 namespace api2captcha
 {
 
@@ -14,7 +16,7 @@ namespace api2captcha
 
         public:
         // A simple Base64 encoding function (you might use a more robust library in production)
-        std::string base64_encode(const std::vector<unsigned char> &data)
+        static string base64_encode(const std::vector<unsigned char> &data)
         {
             const std::string base64_chars =
                 "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
