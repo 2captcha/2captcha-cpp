@@ -296,17 +296,17 @@ cap.set_proxy("HTTPS", "login:password@IP_address:PORT");
 Use this method to solve Temu and obtain a token to bypass the protection.
 
 ```c++
-   api2captcha::temu_t cap (c_strMethod);
+   api2captcha::temu_t cap(c_strMethod);
 
-   string bodyB64Str = getFile2Base64(bodyFilePath);
-   string part1B64Str = getFile2Base64(part1FilePath);
-   string part2B64Str = getFile2Base64(part2FilePath);
-   string part3B64Str = getFile2Base64(part3FilePath);
+   const vector<unsigned char> bodyData = api2captcha::FileUtils::readFile(bodyFilePath);
+   const vector<unsigned char> part1Data = api2captcha::FileUtils::readFile(part1FilePath);
+   const vector<unsigned char> part2Data = api2captcha::FileUtils::readFile(part2FilePath);
+   const vector<unsigned char> part3Data = api2captcha::FileUtils::readFile(part3FilePath);
 
-   cap.set_body(bodyB64Str);
-   cap.set_part1(part1B64Str);
-   cap.set_part2(part2B64Str);
-   cap.set_part3(part3B64Str);
+   cap.set_body(api2captcha::B64::base64_encode(bodyData));
+   cap.set_part1(api2captcha::B64::base64_encode(part1Data));
+   cap.set_part2(api2captcha::B64::base64_encode(part2Data));
+   cap.set_part3(api2captcha::B64::base64_encode(part3Data));
 ```
 
 

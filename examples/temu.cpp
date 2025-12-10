@@ -34,15 +34,15 @@ int main(int ac, char **av)
    client.set_http_client(&http);
    client.set_api_key(av[1]);
 
-   std::string method = "temuimage";
+   string method = "temuimage";
    const char *c_strMethod = method.c_str();
 
    api2captcha::temu_t cap(c_strMethod);
 
-   const std::vector<unsigned char> bodyData = api2captcha::FileUtils::readFile(bodyFilePath);
-   const std::vector<unsigned char> part1Data = api2captcha::FileUtils::readFile(part1FilePath);
-   const std::vector<unsigned char> part2Data = api2captcha::FileUtils::readFile(part2FilePath);
-   const std::vector<unsigned char> part3Data = api2captcha::FileUtils::readFile(part3FilePath);
+   const vector<unsigned char> bodyData = api2captcha::FileUtils::readFile(bodyFilePath);
+   const vector<unsigned char> part1Data = api2captcha::FileUtils::readFile(part1FilePath);
+   const vector<unsigned char> part2Data = api2captcha::FileUtils::readFile(part2FilePath);
+   const vector<unsigned char> part3Data = api2captcha::FileUtils::readFile(part3FilePath);
 
    cap.set_body(api2captcha::B64::base64_encode(bodyData));
    cap.set_part1(api2captcha::B64::base64_encode(part1Data));
