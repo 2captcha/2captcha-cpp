@@ -393,10 +393,33 @@ namespace api2captcha
          set_param("method", method);
       }
 
-      void set_body(const std::string &path) { captcha_t::set_param("body", path); }
-      void set_part1(const std::string &path) { captcha_t::set_param("part1", path); }
-      void set_part2(const std::string &path) { captcha_t::set_param("part2", path); }
-      void set_part3(const std::string &path) { captcha_t::set_param("part3", path); }
+      void set_body(const std::string &b64) { captcha_t::set_param("body", b64); }
+      void set_part1(const std::string &b64) { captcha_t::set_param("part1", b64); }
+      void set_part2(const std::string &b64) { captcha_t::set_param("part2", b64); }
+      void set_part3(const std::string &b64) { captcha_t::set_param("part3", b64); }
+   };
+
+   class audio_t : public captcha_t
+   {
+   public:
+      audio_t()
+      {
+         set_param("method", "audio");
+      }
+
+      void set_body(const std::string &b64) { captcha_t::set_param("body", b64); }
+      void set_lang(const std::string &lang) { captcha_t::set_param("lang", lang); }
+   };
+
+   class yandex_t : public captcha_t
+   {
+   public:
+      yandex_t(){
+         set_param("method", "yandex");
+      }
+
+      void set_site_key(const std::string &s) { set_param("sitekey", s); };
+      void set_url(const std::string &s) { set_param("pageurl", s); };
    };
 
    class client_t

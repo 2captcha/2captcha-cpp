@@ -17,15 +17,15 @@ int main(int ac, char **av)
 {
    if (ac < 2)
    {
-      printf("Usage: ./vk \"API KEY\"\n");
+      printf("Usage: ./temu \"API KEY\"\n");
       return 0;
    }
 
    string current_path = filesystem::current_path().c_str();
-   string bodyFilePath = current_path + "/images/temu/body.png";
-   string part1FilePath = current_path + "/images/temu/part1.png";
-   string part2FilePath = current_path + "/images/temu/part2.png";
-   string part3FilePath = current_path + "/images/temu/part3.png";
+   string bodyFilePath = current_path + "/assets/temu/body.png";
+   string part1FilePath = current_path + "/assets/temu/part1.png";
+   string part2FilePath = current_path + "/assets/temu/part2.png";
+   string part3FilePath = current_path + "/assets/temu/part3.png";
 
    api2captcha::curl_http_t http;
    http.set_verbose(true);

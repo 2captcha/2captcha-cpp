@@ -31,6 +31,8 @@ Examples of API requests for different captcha types are available on the [C++ c
     - [Prosopo](#prosopo)
     - [Captchafox](#captchafox)
     - [Temu](#temu)
+    - [Audio Captcha](#audio-captcha)
+    - [Yandex](#yandex)
   - [Other methods](#other-methods)
     - [send / getResult](#send--get_result)
     - [balance](#balance)
@@ -307,6 +309,30 @@ Use this method to solve Temu and obtain a token to bypass the protection.
    cap.set_part1(api2captcha::B64::base64_encode(part1Data));
    cap.set_part2(api2captcha::B64::base64_encode(part2Data));
    cap.set_part3(api2captcha::B64::base64_encode(part3Data));
+```
+
+### Audio Captcha
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#audio)</sup>
+
+Use the following method to bypass an audio captcha (mp3 formats only). 
+You must provide the language as `lang = 'en'`. Supported languages are "en", "ru", "de", "el", "pt", "fr".
+
+```c++
+   api2captcha::audio_t cap;
+
+   cap.set_body(api2captcha::B64::base64_encode(bodyData));
+   cap.set_lang("en");
+```
+
+### Yandex
+Use this method to solve Yandex and obtain a token to bypass the protection.
+
+```c++
+TwoCaptcha solver = new TwoCaptcha(args[0]);
+Yandex captcha = new Yandex();
+captcha.setSiteKey("Y5Lh0tiycconMJGsFd3EbbuNKSp1yaZESUOIHfeV");
+captcha.setUrl("https://rutube.ru");
 ```
 
 
