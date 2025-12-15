@@ -422,6 +422,17 @@ namespace api2captcha
       void set_url(const std::string &s) { set_param("pageurl", s); };
    };
 
+   class turnstile_t : public captcha_t
+   {
+   public:
+      turnstile_t(){
+         set_param("method", "turnstile");
+      }
+
+      void set_site_key(const std::string &s) { set_param("sitekey", s); };
+      void set_url(const std::string &s) { set_param("pageurl", s); };
+   };
+
    class client_t
    {
       class impl_t

@@ -33,6 +33,7 @@ Examples of API requests for different captcha types are available on the [C++ c
     - [Temu](#temu)
     - [Audio Captcha](#audio-captcha)
     - [Yandex](#yandex)
+    - [Cloudflare Turnstile](#cloudflare-turnstile)
   - [Other methods](#other-methods)
     - [send / getResult](#send--get_result)
     - [balance](#balance)
@@ -329,10 +330,18 @@ You must provide the language as `lang = 'en'`. Supported languages are "en", "r
 Use this method to solve Yandex and obtain a token to bypass the protection.
 
 ```c++
-TwoCaptcha solver = new TwoCaptcha(args[0]);
-Yandex captcha = new Yandex();
-captcha.setSiteKey("Y5Lh0tiycconMJGsFd3EbbuNKSp1yaZESUOIHfeV");
-captcha.setUrl("https://rutube.ru");
+   api2captcha::yandex_t cap;
+   cap.set_site_key ("Y5Lh0tiycconMJGsFd3EbbuNKSp1yaZESUOIHfeV");
+   cap.set_url ("https://rutube.ru");
+```
+
+### Cloudflare Turnstile
+Use this method to solve Turnstile and obtain a token to bypass the protection.
+
+```c++
+   api2captcha::turnstile_t cap;
+   cap.set_site_key ("0x4AAAAAAAChNiVJM_WtShFf");
+   cap.set_url ("https://ace.fusionist.io");
 ```
 
 
