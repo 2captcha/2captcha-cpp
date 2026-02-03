@@ -11,7 +11,7 @@ int main (int ac, char ** av)
 {
    if (ac < 2)
    {
-      printf ("Usage: ./vk \"API KEY\"\n");
+      printf ("Usage: ./vkcaptcha \"API KEY\"\n");
       return 0;
    }
 
