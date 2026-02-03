@@ -82,6 +82,11 @@ namespace api2captcha
       void set_id(const std::string &s) { id_ = s; }
       void set_code(const std::string &s) { code_ = s; }
 
+      void set_user_agent(const std::string &s) 
+      {
+         params_["userAgent"] = s;
+      };
+
       void set_proxy(const std::string &type, const std::string &url)
       {
          params_["proxytype"] = type;
@@ -361,7 +366,34 @@ namespace api2captcha
    class vk_t : public captcha_t
    {
    public:
-      vk_t(const std::string &method)
+      vk_t(const std::string &method);
+      
+   class prosopo_t : public captcha_t
+   {
+   public:
+      prosopo_t(){
+         set_param("method", "prosopo");
+      }
+
+      void set_site_key(const std::string &s) { set_param("sitekey", s); };
+      void set_url(const std::string &s) { set_param("pageurl", s); };
+   };
+
+   class captchafox_t : public captcha_t
+   {
+   public:
+      captchafox_t(){
+         set_param("method", "captchafox");
+      }
+
+      void set_site_key(const std::string &s) { set_param("sitekey", s); };
+      void set_url(const std::string &s) { set_param("pageurl", s); };
+   };
+
+   class temu_t : public captcha_t
+   {
+   public:
+      temu_t(const std::string &method)
       {
          set_param("method", method);
       }
@@ -371,6 +403,44 @@ namespace api2captcha
       void set_steps(const std::string &steps) { set_param("steps", steps); }
       void set_redirect_uri(const std::string &redirect_uri) { set_param("redirect_uri", redirect_uri); }
       void set_user_agent(const std::string &user_agent) { set_param("userAgent", user_agent); }
+      void set_body(const std::string &b64) { captcha_t::set_param("body", b64); }
+      void set_part1(const std::string &b64) { captcha_t::set_param("part1", b64); }
+      void set_part2(const std::string &b64) { captcha_t::set_param("part2", b64); }
+      void set_part3(const std::string &b64) { captcha_t::set_param("part3", b64); }
+   };
+
+   class audio_t : public captcha_t
+   {
+   public:
+      audio_t()
+      {
+         set_param("method", "audio");
+      }
+
+      void set_body(const std::string &b64) { captcha_t::set_param("body", b64); }
+      void set_lang(const std::string &lang) { captcha_t::set_param("lang", lang); }
+   };
+
+   class yandex_t : public captcha_t
+   {
+   public:
+      yandex_t(){
+         set_param("method", "yandex");
+      }
+
+      void set_site_key(const std::string &s) { set_param("sitekey", s); };
+      void set_url(const std::string &s) { set_param("pageurl", s); };
+   };
+
+   class turnstile_t : public captcha_t
+   {
+   public:
+      turnstile_t(){
+         set_param("method", "turnstile");
+      }
+
+      void set_site_key(const std::string &s) { set_param("sitekey", s); };
+      void set_url(const std::string &s) { set_param("pageurl", s); };
    };
 
    class client_t

@@ -30,6 +30,12 @@ Examples of API requests for different captcha types are available on the [C++ c
     - [Lemin](#lemin)
     - [VK Captcha](#vk-captcha)
     - [VK Image](#vk-image)
+    - [Prosopo](#prosopo)
+    - [Captchafox](#captchafox)
+    - [Temu](#temu)
+    - [Audio Captcha](#audio-captcha)
+    - [Yandex](#yandex)
+    - [Cloudflare Turnstile](#cloudflare-turnstile)
   - [Other methods](#other-methods)
     - [send / getResult](#send--get_result)
     - [balance](#balance)
@@ -260,6 +266,7 @@ captcha.set_lang ("en");
 captcha.set_hint_img_file ("path/to/hint.jpg");
 captcha.set_hint_text ("Put the images in the correct way up");
 ```
+
 ### Lemin
 Use this method to solve Lemin and obtain a token to bypass the protection.
 
@@ -294,6 +301,76 @@ cap.set_redirect_uri("https://id.vk.com/not_robot_captcha?domain=vk.com&session_
 cap.set_user_agent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36");
 cap.set_proxy("http", "1.2.3.4");
 ```
+
+### Prosopo
+Use this method to solve Prosopo and obtain a token to bypass the protection.
+
+```c++
+api2captcha::prosopo_t cap;
+cap.set_site_key ("5EZVvsHMrKCFKp5NYNoTyDjTjetoVo1Z4UNNbTwJf1GfN6Xm");
+cap.set_url ("https://www.twickets.live/");
+```
+
+### Captchafox
+Use this method to solve Captchafox and obtain a token to bypass the protection.
+
+```c++
+api2captcha::captchafox_t cap;
+cap.set_site_key ("sk_ILKWNruBBVKDOM7dZs59KHnDLEWiH");
+cap.set_url ("https://mysite.com/page/with/captchafox");
+cap.set_user_agent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36");
+cap.set_proxy("HTTPS", "login:password@IP_address:PORT");
+```
+
+### Temu
+Use this method to solve Temu and obtain a token to bypass the protection.
+
+```c++
+   api2captcha::temu_t cap(c_strMethod);
+
+   const vector<unsigned char> bodyData = api2captcha::FileUtils::readFile(bodyFilePath);
+   const vector<unsigned char> part1Data = api2captcha::FileUtils::readFile(part1FilePath);
+   const vector<unsigned char> part2Data = api2captcha::FileUtils::readFile(part2FilePath);
+   const vector<unsigned char> part3Data = api2captcha::FileUtils::readFile(part3FilePath);
+
+   cap.set_body(api2captcha::B64::base64_encode(bodyData));
+   cap.set_part1(api2captcha::B64::base64_encode(part1Data));
+   cap.set_part2(api2captcha::B64::base64_encode(part2Data));
+   cap.set_part3(api2captcha::B64::base64_encode(part3Data));
+```
+
+### Audio Captcha
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#audio)</sup>
+
+Use the following method to bypass an audio captcha (mp3 formats only). 
+You must provide the language as `lang = 'en'`. Supported languages are "en", "ru", "de", "el", "pt", "fr".
+
+```c++
+   api2captcha::audio_t cap;
+
+   cap.set_body(api2captcha::B64::base64_encode(bodyData));
+   cap.set_lang("en");
+```
+
+### Yandex
+Use this method to solve Yandex and obtain a token to bypass the protection.
+
+```c++
+   api2captcha::yandex_t cap;
+   cap.set_site_key ("Y5Lh0tiycconMJGsFd3EbbuNKSp1yaZESUOIHfeV");
+   cap.set_url ("https://rutube.ru");
+```
+
+### Cloudflare Turnstile
+Use this method to solve Turnstile and obtain a token to bypass the protection.
+
+```c++
+   api2captcha::turnstile_t cap;
+   cap.set_site_key ("0x4AAAAAAAChNiVJM_WtShFf");
+   cap.set_url ("https://ace.fusionist.io");
+```
+
 
 ## Other methods
 
