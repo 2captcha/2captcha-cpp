@@ -26,8 +26,8 @@ int main (int ac, char ** av)
    const char * c_strMethod = method.c_str();
 
    api2captcha::geetest_v4_t cap (c_strMethod);
-   cap.set_captcha_id("");
-   cap.set_pageurl("");
+   cap.set_captcha_id("2d9c743cf7d63dbc9db578a608196bcd");
+   cap.set_pageurl("https://m.avito.ru/all/avtomobili?context=H4sIAAAAAAAA_0q0MrKqLraysFJKK8rPDUhMT1WyLrYyNLVSKs7ILypJLi0pDs9MSU8tAQubWCllJBa7VpQUJQYkFiXmFitZJ1kZWtcCAgAA__-ChIjFRgAAAA&radius=0&presentationType=serp");
 
    try
    {
