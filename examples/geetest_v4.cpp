@@ -1,22 +1,33 @@
 #include <cstdio>
+#include <filesystem>
+#include <iostream>
 
 #include "curl_http.hpp"
 #include "api2captcha.hpp"
 
+using namespace std;
+
 int main (int ac, char ** av)
 {
+   if (ac < 2)
+   {
+      printf ("Usage: ./geetest_v4 \"API KEY\"\n");
+      return 0;
+   }
+
    api2captcha::curl_http_t http;
    http.set_verbose (true);
 
    api2captcha::client_t client;
    client.set_http_client (&http);
-   client.set_api_key (API_KEY);
+   client.set_api_key (av[1]);
 
-   api2captcha::geetest_t cap;
-   cap.set_gt ("f2ae6cadcf7886856696502e1d55e00c");
-   cap.set_api_server ("api-na.geetest.com");
-   cap.set_challenge ("12345678abc90123d45678ef90123a456b");
-   cap.set_url ("https://mysite.com/captcha.html");
+   std::string method = "geetest_v4";
+   const char * c_strMethod = method.c_str();
+
+   api2captcha::geetest_v4_t cap (c_strMethod);
+   cap.set_captcha_id("");
+   cap.set_pageurl("");
 
    try
    {

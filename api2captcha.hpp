@@ -183,6 +183,21 @@ namespace api2captcha
       }
    };
 
+   class geetest_v4_t : public captcha_t
+   {
+   public:
+      geetest_v4_t(const std::string &method)
+      {
+         set_param("method", method);
+      }
+
+      void set_captcha_id(const std::string &captcha_id) { set_param("captcha_id", captcha_id); };
+      void set_risk_type(const std::string &risk_type) { set_param("risk_type", risk_type); };
+      void set_header_acao(const int header_acao) { set_param("header_acao", std::to_string(header_acao)); } 
+      void set_pingback(const std::string &pingback) { set_param("pingback", pingback); };
+      void set_pageurl(const std::string &pageurl) { set_param("pageurl", pageurl); };
+   };
+
    class geetest_t : public captcha_t
    {
    public:
