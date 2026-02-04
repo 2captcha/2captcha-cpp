@@ -36,6 +36,7 @@ Examples of API requests for different captcha types are available on the [C++ c
     - [Audio Captcha](#audio-captcha)
     - [Yandex](#yandex)
     - [Cloudflare Turnstile](#cloudflare-turnstile)
+    - [GeeTest v4](#geetest-v4)
   - [Other methods](#other-methods)
     - [send / getResult](#send--get_result)
     - [balance](#balance)
@@ -191,6 +192,21 @@ captcha.set_api_server ("api-na.geetest.com");
 captcha.set_challenge ("12345678abc90123d45678ef90123a456b");
 captcha.set_url ("https://mysite.com/captcha.html");
 captcha.set_proxy ("HTTPS", "login:password@IP_address:PORT");
+```
+
+### GeeTest v4
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#geetest-v4)</sup>
+
+Method to solve GeeTestV4 puzzle captcha. Returns a set of tokens as JSON.
+
+```c++
+   std::string method = "geetest_v4";
+   const char * c_strMethod = method.c_str();
+
+   api2captcha::geetest_v4_t cap (c_strMethod);
+   cap.set_captcha_id("2d9c743cf7");
+   cap.set_pageurl("https://page.com");
 ```
 
 ### KeyCaptcha
