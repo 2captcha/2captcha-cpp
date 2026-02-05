@@ -37,6 +37,7 @@ Examples of API requests for different captcha types are available on the [C++ c
     - [Yandex](#yandex)
     - [Cloudflare Turnstile](#cloudflare-turnstile)
     - [GeeTest v4](#geetest-v4)
+    - [Amazon WAF](#amazon-waf)
   - [Other methods](#other-methods)
     - [send / getResult](#send--get_result)
     - [balance](#balance)
@@ -207,6 +208,23 @@ Method to solve GeeTestV4 puzzle captcha. Returns a set of tokens as JSON.
    api2captcha::geetest_v4_t cap (c_strMethod);
    cap.set_captcha_id("2d9c743cf7");
    cap.set_pageurl("https://page.com");
+```
+
+### Amazon WAF
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#amazon-waf)</sup>
+
+Use this method to solve Amazon WAF and obtain a token to bypass the protection.
+
+```c++
+   std::string method = "amazon_waf";
+   const char * c_strMethod = method.c_str();
+
+   api2captcha::amazonwaf_t cap (c_strMethod);
+   cap.set_site_key("AQIDAHjcYu/GjX+QlghicBgQ/7bFaQZ+m5FKCMDnO");
+   cap.set_pageurl("https://non-existent-example.execute-api.us-east-1.amazonaws.com");
+   cap.set_iv("test_iv");
+   cap.set_context("test_context");
 ```
 
 ### KeyCaptcha

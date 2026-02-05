@@ -183,6 +183,24 @@ namespace api2captcha
       }
    };
 
+   class amazonwaf_t : public captcha_t
+   {
+   public:
+      amazonwaf_t(const std::string &method)
+      {
+         set_param("method", method);
+      }
+
+      void set_site_key(const std::string &s) { set_param("sitekey", s); };
+      void set_pageurl(const std::string &pageurl) { set_param("pageurl", pageurl); };
+      void set_iv(const std::string &iv) { set_param("iv", iv); };
+      void set_context(const std::string &context) { set_param("context", context); };
+
+      void set_challenge_script(const std::string &challenge_script) { set_param("challenge_script", challenge_script); };
+      void set_captcha_script(const std::string &captcha_script) { set_param("captcha_script", captcha_script); };
+      void set_header_acao(const int header_acao) { set_param("header_acao", std::to_string(header_acao)); }      
+   };
+
    class geetest_v4_t : public captcha_t
    {
    public:
