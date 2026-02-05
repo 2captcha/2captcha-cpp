@@ -18,7 +18,7 @@ GPP		= g++
 CC_OPT		= $(OPTIM) -std=c++17 -Wall -pipe $(INC_DIR)
 
 all:	normal canvas capy coordinates funcaptcha geetest grid keycaptcha recaptcha \
-        rotate text vkimage vkcaptcha temu yandex turnstile
+        rotate text vkimage vkcaptcha temu yandex turnstile geetest_v4 amazonwaf
 
 normal:		normal.o
 		$(GPP) ${OPTIM} -Wall -o normal normal.o $(LIB_DIR) $(LIB_FILES)
@@ -74,12 +74,19 @@ yandex:	yandex.o
 turnstile:	turnstile.o
 		$(GPP) ${OPTIM} -Wall -o turnstile turnstile.o $(LIB_DIR) $(LIB_FILES)
 
+geetest_v4:	geetest_v4.o
+		$(GPP) ${OPTIM} -Wall -o geetest_v4 geetest_v4.o $(LIB_DIR) $(LIB_FILES)
+
+amazonwaf:	amazonwaf.o
+		$(GPP) ${OPTIM} -Wall -o amazonwaf amazonwaf.o $(LIB_DIR) $(LIB_FILES)		
+
 .cpp.o:
 		$(GPP) $(CC_OPT) $(DEFINES) -o $@ -c $< 
 
 clean:
 		rm -rf core *~ *.o normal canvas capy coordinates funcaptcha geetest grid hcaptcha \
-		keycaptcha recaptcha rotate text lemin vkimage vkcaptcha temu yandex turnstile
+		keycaptcha recaptcha rotate text lemin vkimage vkcaptcha temu yandex turnstile geetest_v4 \
+		amazonwaf
 
 strip:		$(PROG)
 		strip $(PROG)

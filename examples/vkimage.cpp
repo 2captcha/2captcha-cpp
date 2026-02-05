@@ -16,7 +16,7 @@ int main (int ac, char ** av)
    }
 
    string current_path = filesystem::current_path().c_str();
-   string image = current_path + "/images/vk.jpg";
+   string image = current_path + "/assets/vk.jpg";
 
    api2captcha::curl_http_t http;
    http.set_verbose (true);
