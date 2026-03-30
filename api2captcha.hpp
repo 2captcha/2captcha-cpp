@@ -416,6 +416,7 @@ namespace api2captcha
 
       void set_site_key(const std::string &s) { set_param("sitekey", s); };
       void set_url(const std::string &s) { set_param("pageurl", s); };
+      void set_api_server(const std::string &s) { set_param("api_server", s); };
    };
 
    class temu_t : public captcha_t
