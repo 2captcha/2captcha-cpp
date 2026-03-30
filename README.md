@@ -354,6 +354,7 @@ cap.set_site_key ("sk_ILKWNruBBVKDOM7dZs59KHnDLEWiH");
 cap.set_url ("https://mysite.com/page/with/captchafox");
 cap.set_user_agent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36");
 cap.set_proxy("HTTPS", "login:password@IP_address:PORT");
+cap.set_api_server("api_server");
 ```
 
 ### Temu
