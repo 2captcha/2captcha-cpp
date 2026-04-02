@@ -38,6 +38,7 @@ Examples of API requests for different captcha types are available on the [C++ c
     - [Cloudflare Turnstile](#cloudflare-turnstile)
     - [GeeTest v4](#geetest-v4)
     - [Amazon WAF](#amazon-waf)
+    - [Altchacaptcha](#altchacaptcha)
   - [Other methods](#other-methods)
     - [send / getResult](#send--get_result)
     - [balance](#balance)
@@ -406,6 +407,14 @@ Use this method to solve Turnstile and obtain a token to bypass the protection.
    cap.set_url ("https://ace.fusionist.io");
 ```
 
+### Altchacaptcha
+Use this method to solve Altchacaptcha and obtain a token to bypass the protection.
+
+```c++
+   api2captcha::altchacaptcha_t cap;
+   cap.set_challenge_url("https://.../captcha/api/altcha/challenge");
+   cap.set_page_url ("https://site.com/");
+```
 
 ## Other methods
 

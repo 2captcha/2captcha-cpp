@@ -488,6 +488,18 @@ namespace api2captcha
       void set_user_agent(const std::string &user_agent) { set_param("userAgent", user_agent); }
    };
 
+   class altchacaptcha_t : public captcha_t
+   {
+   public:
+      altchacaptcha_t(){
+         set_param("method", "altcha");
+      }
+
+      void set_challenge_url(const std::string &s) { set_param("challenge_url", s); };
+      void set_page_url(const std::string &s) { set_param("pageurl", s); };
+      void set_challenge_json(const std::string &s) { set_param("challenge_json", s); };
+   };
+
    class client_t
    {
       class impl_t
