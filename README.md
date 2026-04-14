@@ -39,6 +39,7 @@ Examples of API requests for different captcha types are available on the [C++ c
     - [GeeTest v4](#geetest-v4)
     - [Amazon WAF](#amazon-waf)
     - [Altchacaptcha](#altchacaptcha)
+    - [Atbcaptcha](#atbcaptcha)
   - [Other methods](#other-methods)
     - [send / getResult](#send--get_result)
     - [balance](#balance)
@@ -414,6 +415,17 @@ Use this method to solve Altchacaptcha and obtain a token to bypass the protecti
    api2captcha::altchacaptcha_t cap;
    cap.set_challenge_url("https://.../captcha/api/altcha/challenge");
    cap.set_page_url ("https://site.com/");
+```
+
+### Atbcaptcha
+Use this method to solve Atbcaptcha and obtain a token to bypass the protection.
+
+```c++
+   api2captcha::captcha_t cap;
+   cap.set_param("method", "atb_captcha");
+   cap.set_param("app_id", "af23e041b22d000a11e22a230fa8991c");
+   cap.set_param("api_server", "https://cap.aisecurius.com");
+   cap.set_param("pageurl", "https://www.playzone.vip/");
 ```
 
 ## Other methods
