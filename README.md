@@ -41,6 +41,7 @@ Examples of API requests for different captcha types are available on the [C++ c
     - [Altchacaptcha](#altchacaptcha)
     - [Atbcaptcha](#atbcaptcha)
     - [Mtcaptcha](#mtcaptcha)
+    - [Friendlycaptcha](#friendlycaptcha)
   - [Other methods](#other-methods)
     - [send / getResult](#send--get_result)
     - [balance](#balance)
@@ -438,6 +439,17 @@ Use this method to solve Mtcaptcha and obtain a token to bypass the protection.
    cap.set_param("sitekey", "MTPublic-KzqLY1cKH");
    cap.set_param("pageurl", "https://2captcha.com/demo/mtcaptcha");
 ```
+
+### Friendlycaptcha
+Use this method to solve Friendlycaptcha and obtain a token to bypass the protection.
+
+```c++
+   api2captcha::captcha_t cap;
+   cap.set_param("method", "friendly_captcha");
+   cap.set_param("sitekey", "FCMST5VUMCBOCGQ9");
+   cap.set_param("pageurl", "https://mysite.com/page/with/FriendlyCaptcha");
+```
+
 
 ## Other methods
 
