@@ -43,6 +43,7 @@ Examples of API requests for different captcha types are available on the [C++ c
     - [Mtcaptcha](#mtcaptcha)
     - [Friendlycaptcha](#friendlycaptcha)
     - [Tencent](#tencent)
+    - [Datadome](#datadome)
   - [Other methods](#other-methods)
     - [send / getResult](#send--get_result)
     - [balance](#balance)
@@ -459,6 +460,19 @@ Use this method to solve Tencent and obtain a token to bypass the protection.
    cap.set_param("method", "tencent");
    cap.set_param("app_id", "2092215077");
    cap.set_param("pageurl", "https://mysite.com/page/with/tencent");
+```
+
+### Datadome
+Use this method to solve Datadome and obtain a token to bypass the protection.
+
+```c++
+   api2captcha::captcha_t cap;
+   cap.set_param("method", "datadome");
+   cap.set_param("captcha_url", "https://geo.captcha-delivery.com/captcha/?initialCid=AHrlqAAA...");
+   cap.set_param("pageurl", "https://example.com/");
+   cap.set_param("userAgent", "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Mobile Safari/537.3");
+   cap.set_param("proxytype", "HTTPS");
+   cap.set_param("proxy", "login:password@IP_address:PORT");
 ```
 
 ## Other methods
