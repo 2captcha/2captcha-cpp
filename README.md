@@ -427,9 +427,9 @@ Use this method to solve Atbcaptcha and obtain a token to bypass the protection.
 ```c++
    api2captcha::captcha_t cap;
    cap.set_param("method", "atb_captcha");
-   cap.set_param("app_id", "af23e041b22d000a11e22a230fa8991c");
+   cap.set_param("app_id", "af23e041b22d000a11e22a230fa7777c");
    cap.set_param("api_server", "https://cap.aisecurius.com");
-   cap.set_param("pageurl", "https://www.playzone.vip/");
+   cap.set_param("pageurl", "https://mysite.com/page/with/atbcaptcha");
 ```
 
 ### Mtcaptcha
