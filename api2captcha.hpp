@@ -60,6 +60,11 @@ namespace api2captcha
       files_t files_;
 
    protected:
+   public:
+      captcha_t() {};
+      // make polymorphic
+      virtual ~captcha_t() {}
+
       void set_param(const std::string &name, const std::string &value)
       {
          params_[name] = value;
@@ -70,19 +75,13 @@ namespace api2captcha
          files_[name] = value;
       }
 
-      captcha_t() {};
-
-   public:
-      // make polymorphic
-      virtual ~captcha_t() {}
-
       const std::string &id() const { return id_; }
       const std::string &code() const { return code_; }
 
       void set_id(const std::string &s) { id_ = s; }
       void set_code(const std::string &s) { code_ = s; }
 
-      void set_user_agent(const std::string &s) 
+      void set_user_agent(const std::string &s)
       {
          params_["userAgent"] = s;
       };
@@ -198,7 +197,7 @@ namespace api2captcha
 
       void set_challenge_script(const std::string &challenge_script) { set_param("challenge_script", challenge_script); };
       void set_captcha_script(const std::string &captcha_script) { set_param("captcha_script", captcha_script); };
-      void set_header_acao(const int header_acao) { set_param("header_acao", std::to_string(header_acao)); }      
+      void set_header_acao(const int header_acao) { set_param("header_acao", std::to_string(header_acao)); }
    };
 
    class geetest_v4_t : public captcha_t
@@ -211,7 +210,7 @@ namespace api2captcha
 
       void set_captcha_id(const std::string &captcha_id) { set_param("captcha_id", captcha_id); };
       void set_risk_type(const std::string &risk_type) { set_param("risk_type", risk_type); };
-      void set_header_acao(const int header_acao) { set_param("header_acao", std::to_string(header_acao)); } 
+      void set_header_acao(const int header_acao) { set_param("header_acao", std::to_string(header_acao)); }
       void set_pingback(const std::string &pingback) { set_param("pingback", pingback); };
       void set_pageurl(const std::string &pageurl) { set_param("pageurl", pageurl); };
    };
@@ -399,7 +398,8 @@ namespace api2captcha
    class prosopo_t : public captcha_t
    {
    public:
-      prosopo_t(){
+      prosopo_t()
+      {
          set_param("method", "prosopo");
       }
 
@@ -410,7 +410,8 @@ namespace api2captcha
    class captchafox_t : public captcha_t
    {
    public:
-      captchafox_t(){
+      captchafox_t()
+      {
          set_param("method", "captchafox");
       }
 
@@ -453,7 +454,8 @@ namespace api2captcha
    class yandex_t : public captcha_t
    {
    public:
-      yandex_t(){
+      yandex_t()
+      {
          set_param("method", "yandex");
       }
 
@@ -464,14 +466,14 @@ namespace api2captcha
    class turnstile_t : public captcha_t
    {
    public:
-      turnstile_t(){
+      turnstile_t()
+      {
          set_param("method", "turnstile");
       }
 
       void set_site_key(const std::string &s) { set_param("sitekey", s); };
       void set_url(const std::string &s) { set_param("pageurl", s); };
    };
-
 
    class vk_t : public captcha_t
    {
@@ -491,7 +493,8 @@ namespace api2captcha
    class altchacaptcha_t : public captcha_t
    {
    public:
-      altchacaptcha_t(){
+      altchacaptcha_t()
+      {
          set_param("method", "altcha");
       }
 
@@ -509,7 +512,7 @@ namespace api2captcha
          std::string api_key_;
          int soft_id_ = 4586;
          std::string callback_;
-         int default_timeout_ = 120;    // sec
+         int default_timeout_ = 120;   // sec
          int recaptcha_timeout_ = 600; // sec
          int polling_interval_ = 10;   // sec
          bool last_captcha_has_callback_ = false;

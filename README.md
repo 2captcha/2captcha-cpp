@@ -39,6 +39,11 @@ Examples of API requests for different captcha types are available on the [C++ c
     - [GeeTest v4](#geetest-v4)
     - [Amazon WAF](#amazon-waf)
     - [Altchacaptcha](#altchacaptcha)
+    - [Atbcaptcha](#atbcaptcha)
+    - [Mtcaptcha](#mtcaptcha)
+    - [Friendlycaptcha](#friendlycaptcha)
+    - [Tencent](#tencent)
+    - [Datadome](#datadome)
   - [Other methods](#other-methods)
     - [send / getResult](#send--get_result)
     - [balance](#balance)
@@ -414,6 +419,60 @@ Use this method to solve Altchacaptcha and obtain a token to bypass the protecti
    api2captcha::altchacaptcha_t cap;
    cap.set_challenge_url("https://.../captcha/api/altcha/challenge");
    cap.set_page_url ("https://site.com/");
+```
+
+### Atbcaptcha
+Use this method to solve Atbcaptcha and obtain a token to bypass the protection.
+
+```c++
+   api2captcha::captcha_t cap;
+   cap.set_param("method", "atb_captcha");
+   cap.set_param("app_id", "af23e041b22d000a11e22a230fa7777c");
+   cap.set_param("api_server", "https://cap.aisecurius.com");
+   cap.set_param("pageurl", "https://mysite.com/page/with/atbcaptcha");
+```
+
+### Mtcaptcha
+Use this method to solve Mtcaptcha and obtain a token to bypass the protection.
+
+```c++
+   api2captcha::captcha_t cap;
+   cap.set_param("method", "mt_captcha");
+   cap.set_param("sitekey", "MTPublic-KzqLY1cKH");
+   cap.set_param("pageurl", "https://2captcha.com/demo/mtcaptcha");
+```
+
+### Friendlycaptcha
+Use this method to solve Friendlycaptcha and obtain a token to bypass the protection.
+
+```c++
+   api2captcha::captcha_t cap;
+   cap.set_param("method", "friendly_captcha");
+   cap.set_param("sitekey", "FCMST5VUMCBOCGQ9");
+   cap.set_param("pageurl", "https://mysite.com/page/with/FriendlyCaptcha");
+```
+
+### Tencent
+Use this method to solve Tencent and obtain a token to bypass the protection.
+
+```c++
+   api2captcha::captcha_t cap;
+   cap.set_param("method", "tencent");
+   cap.set_param("app_id", "2092215077");
+   cap.set_param("pageurl", "https://mysite.com/page/with/tencent");
+```
+
+### Datadome
+Use this method to solve Datadome and obtain a token to bypass the protection.
+
+```c++
+   api2captcha::captcha_t cap;
+   cap.set_param("method", "datadome");
+   cap.set_param("captcha_url", "https://geo.captcha-delivery.com/captcha/?initialCid=AHrlqAAA...");
+   cap.set_param("pageurl", "https://example.com/");
+   cap.set_param("userAgent", "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Mobile Safari/537.3");
+   cap.set_param("proxytype", "HTTPS");
+   cap.set_param("proxy", "login:password@IP_address:PORT");
 ```
 
 ## Other methods
