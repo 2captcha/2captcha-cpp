@@ -44,6 +44,7 @@ Examples of API requests for different captcha types are available on the [C++ c
     - [Friendlycaptcha](#friendlycaptcha)
     - [Tencent](#tencent)
     - [Datadome](#datadome)
+    - [Binance](#binance)
   - [Other methods](#other-methods)
     - [send / getResult](#send--get_result)
     - [balance](#balance)
@@ -473,6 +474,16 @@ Use this method to solve Datadome and obtain a token to bypass the protection.
    cap.set_param("userAgent", "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Mobile Safari/537.3");
    cap.set_param("proxytype", "HTTPS");
    cap.set_param("proxy", "login:password@IP_address:PORT");
+```
+
+### Binance
+Use this method to solve Binance and obtain a token to bypass the protection.
+
+```c++
+   api2captcha::binance_t cap;
+   cap.set_site_key ("login");
+   cap.set_url ("https://example.com/page-with-binance");
+   cap.set_validate_id ("cb0bfef...e54ecd57b");
 ```
 
 ## Other methods

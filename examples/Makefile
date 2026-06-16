@@ -19,7 +19,7 @@ CC_OPT		= $(OPTIM) -std=c++17 -Wall -pipe $(INC_DIR)
 
 all:	normal canvas capy coordinates funcaptcha geetest grid keycaptcha recaptcha \
         rotate text vkimage vkcaptcha temu yandex turnstile geetest_v4 amazonwaf \
-		atbcaptcha mtcaptcha friendlycaptcha tencent datadome
+		atbcaptcha mtcaptcha friendlycaptcha tencent datadome binance
 
 normal:		normal.o
 		$(GPP) ${OPTIM} -Wall -o normal normal.o $(LIB_DIR) $(LIB_FILES)
@@ -95,6 +95,9 @@ tencent: tencent.o
 		
 datadome: datadome.o
 		$(GPP) ${OPTIM} -Wall -o datadome datadome.o $(LIB_DIR) $(LIB_FILES)
+		
+binance: binance.o
+		$(GPP) ${OPTIM} -Wall -o binance binance.o $(LIB_DIR) $(LIB_FILES)
 
 .cpp.o:
 		$(GPP) $(CC_OPT) $(DEFINES) -o $@ -c $< 
@@ -102,7 +105,7 @@ datadome: datadome.o
 clean:
 		rm -rf core *~ *.o normal canvas capy coordinates funcaptcha geetest grid hcaptcha \
 		keycaptcha recaptcha rotate text lemin vkimage vkcaptcha temu yandex turnstile geetest_v4 \
-		amazonwaf atbcaptcha mtcaptcha friendlycaptcha tencent datadome
+		amazonwaf atbcaptcha mtcaptcha friendlycaptcha tencent datadome binance
 
 strip:		$(PROG)
 		strip $(PROG)

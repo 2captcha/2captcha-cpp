@@ -503,6 +503,19 @@ namespace api2captcha
       void set_challenge_json(const std::string &s) { set_param("challenge_json", s); };
    };
 
+   class binance_t : public captcha_t
+   {
+   public:
+      binance_t()
+      {
+         set_param("method", "binance");
+      }
+
+      void set_site_key(const std::string &s) { set_param("sitekey", s); };
+      void set_url(const std::string &s) { set_param("pageurl", s); };
+      void set_validate_id(const std::string &s) { set_param("validate_id", s); };
+   };
+
    class client_t
    {
       class impl_t

@@ -11,7 +11,7 @@ int main (int ac, char ** av)
 {
    if (ac < 2)
    {
-      printf ("Usage: ./yandex \"API KEY\"\n");
+      printf ("Usage: ./binance \"API KEY\"\n");
       return 0;
    }
 
@@ -22,9 +22,10 @@ int main (int ac, char ** av)
    client.set_http_client (&http);
    client.set_api_key (av[1]);
 
-   api2captcha::yandex_t cap;
-   cap.set_site_key ("Y5Lh0tiycconMJGsFd3EbbuNKSp1yaZESUOIHfeV");
-   cap.set_url ("https://rutube.ru");
+   api2captcha::binance_t cap;
+   cap.set_site_key ("login");
+   cap.set_url ("https://example.com/page-with-binance");
+   cap.set_validate_id ("cb0bfef...e54ecd57b");
 
    try
    {
