@@ -516,6 +516,19 @@ namespace api2captcha
       void set_validate_id(const std::string &s) { set_param("validate_id", s); };
    };
 
+   class hunt_t : public captcha_t
+   {
+   public:
+      hunt_t()
+      {
+         set_param("method", "hunt");
+      }
+
+      void set_url(const std::string &s) { set_param("pageurl", s); };
+      void set_api_get_lib(const std::string &s) { set_param("api_get_lib", s); };
+      void set_data(const std::string &s) { set_param("data", s); };
+   };
+
    class client_t
    {
       class impl_t

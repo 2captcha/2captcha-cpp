@@ -45,6 +45,7 @@ Examples of API requests for different captcha types are available on the [C++ c
     - [Tencent](#tencent)
     - [Datadome](#datadome)
     - [Binance](#binance)
+    - [Hunt](#hunt)
   - [Other methods](#other-methods)
     - [send / getResult](#send--get_result)
     - [balance](#balance)
@@ -484,6 +485,26 @@ Use this method to solve Binance and obtain a token to bypass the protection.
    cap.set_site_key ("login");
    cap.set_url ("https://example.com/page-with-binance");
    cap.set_validate_id ("cb0bfef...e54ecd57b");
+```
+
+### Hunt
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#hunt)</sup>
+
+Use this method to solve Hunt captcha and obtain a token to bypass the protection.
+
+```c++
+   api2captcha::hunt_t cap;
+   cap.set_url ("https://example.com/page-with-hunt");
+   cap.set_api_get_lib ("https://example.com/hd-api/external/apps/app-id/api.js");
+   cap.set_user_agent ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36");
+   cap.set_proxy ("HTTPS", "login:password@IP_address:PORT");
+```
+
+Hunt supports a two-step workflow. On the first call (without `set_data`) the solver returns an `X-HD` fingerprint. Pass the `meta.token` received from the site to `set_data` for the second call to obtain the final token.
+
+```c++
+   cap.set_data ("meta.token.value.from.site");
 ```
 
 ## Other methods
