@@ -529,6 +529,19 @@ namespace api2captcha
       void set_data(const std::string &s) { set_param("data", s); };
    };
 
+   class tspd_t : public captcha_t
+   {
+   public:
+      tspd_t()
+      {
+         set_param("method", "tspd");
+      }
+
+      void set_url(const std::string &s) { set_param("pageurl", s); };
+      void set_tspd_cookie(const std::string &s) { set_param("tspd_cookie", s); };
+      void set_html_page_base64(const std::string &s) { set_param("html_page_base64", s); };
+   };
+
    class client_t
    {
       class impl_t

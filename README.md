@@ -46,6 +46,7 @@ Examples of API requests for different captcha types are available on the [C++ c
     - [Datadome](#datadome)
     - [Binance](#binance)
     - [Hunt](#hunt)
+    - [Tspd](#tspd)
   - [Other methods](#other-methods)
     - [send / getResult](#send--get_result)
     - [balance](#balance)
@@ -506,6 +507,23 @@ Hunt supports a two-step workflow. On the first call (without `set_data`) the so
 ```c++
    cap.set_data ("meta.token.value.from.site");
 ```
+
+### Tspd
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#tspd)</sup>
+
+Use this method to bypass TSPD protection. Returns a JSON string with updated cookies organized by domain.
+
+```c++
+   api2captcha::tspd_t cap;
+   cap.set_url ("https://example.com/page-with-tspd");
+   cap.set_tspd_cookie ("TS386a400d029=...");
+   cap.set_html_page_base64 ("PCFET0NUWVBFIGh0bWw+...");
+   cap.set_user_agent ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36");
+   cap.set_proxy ("HTTPS", "login:password@IP_address:PORT");
+```
+
+`set_html_page_base64` accepts the full HTML of the TSPD challenge page encoded as Base64. A proxy is required to maintain the same outbound IP across all stages of the solving process.
 
 ## Other methods
 
