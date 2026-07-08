@@ -48,6 +48,7 @@ Examples of API requests for different captcha types are available on the [C++ c
     - [Hunt](#hunt)
     - [Tspd](#tspd)
     - [Basilisk](#basilisk)
+    - [Alibaba](#alibaba)
   - [Other methods](#other-methods)
     - [send / getResult](#send--get_result)
     - [balance](#balance)
@@ -536,6 +537,21 @@ Use this method to solve Basilisk captcha and obtain a token to bypass the prote
    api2captcha::basilisk_t cap;
    cap.set_site_key ("SITE_KEY");
    cap.set_url ("https://example.com/page-with-basilisk");
+   cap.set_user_agent ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36");
+   cap.set_proxy ("HTTPS", "login:password@IP_address:PORT");
+```
+
+### Alibaba
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#alibaba)</sup>
+
+Use this method to solve Alibaba captcha. Returns a JSON string with tokens (`certifyId`, `deviceToken`, `data`).
+
+```c++
+   api2captcha::alibaba_t cap;
+   cap.set_url ("https://example.com/page-with-alibaba");
+   cap.set_scene_id ("1ww7426c4");
+   cap.set_prefix ("prefix_value");
    cap.set_user_agent ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36");
    cap.set_proxy ("HTTPS", "login:password@IP_address:PORT");
 ```

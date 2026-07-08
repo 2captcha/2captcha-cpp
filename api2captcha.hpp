@@ -554,6 +554,19 @@ namespace api2captcha
       void set_url(const std::string &s) { set_param("pageurl", s); };
    };
 
+   class alibaba_t : public captcha_t
+   {
+   public:
+      alibaba_t()
+      {
+         set_param("method", "alibaba");
+      }
+
+      void set_url(const std::string &s) { set_param("pageurl", s); };
+      void set_scene_id(const std::string &s) { set_param("sceneId", s); };
+      void set_prefix(const std::string &s) { set_param("prefix", s); };
+   };
+
    class client_t
    {
       class impl_t
