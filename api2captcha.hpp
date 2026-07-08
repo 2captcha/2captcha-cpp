@@ -542,6 +542,18 @@ namespace api2captcha
       void set_html_page_base64(const std::string &s) { set_param("html_page_base64", s); };
    };
 
+   class basilisk_t : public captcha_t
+   {
+   public:
+      basilisk_t()
+      {
+         set_param("method", "basilisk");
+      }
+
+      void set_site_key(const std::string &s) { set_param("sitekey", s); };
+      void set_url(const std::string &s) { set_param("pageurl", s); };
+   };
+
    class client_t
    {
       class impl_t

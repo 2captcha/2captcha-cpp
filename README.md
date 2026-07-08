@@ -47,6 +47,7 @@ Examples of API requests for different captcha types are available on the [C++ c
     - [Binance](#binance)
     - [Hunt](#hunt)
     - [Tspd](#tspd)
+    - [Basilisk](#basilisk)
   - [Other methods](#other-methods)
     - [send / getResult](#send--get_result)
     - [balance](#balance)
@@ -524,6 +525,20 @@ Use this method to bypass TSPD protection. Returns a JSON string with updated co
 ```
 
 `set_html_page_base64` accepts the full HTML of the TSPD challenge page encoded as Base64. A proxy is required to maintain the same outbound IP across all stages of the solving process.
+
+### Basilisk
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#basilisk)</sup>
+
+Use this method to solve Basilisk captcha and obtain a token to bypass the protection.
+
+```c++
+   api2captcha::basilisk_t cap;
+   cap.set_site_key ("SITE_KEY");
+   cap.set_url ("https://example.com/page-with-basilisk");
+   cap.set_user_agent ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36");
+   cap.set_proxy ("HTTPS", "login:password@IP_address:PORT");
+```
 
 ## Other methods
 
