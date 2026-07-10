@@ -567,6 +567,23 @@ namespace api2captcha
       void set_prefix(const std::string &s) { set_param("prefix", s); };
    };
 
+   class yidun_t : public captcha_t
+   {
+   public:
+      yidun_t()
+      {
+         set_param("method", "yidun");
+      }
+
+      void set_site_key(const std::string &s) { set_param("sitekey", s); };
+      void set_url(const std::string &s) { set_param("pageurl", s); };
+      void set_yidun_get_lib(const std::string &s) { set_param("yidun_get_lib", s); };
+      void set_yidun_api_server_subdomain(const std::string &s) { set_param("yidun_api_server_subdomain", s); };
+      void set_challenge(const std::string &s) { set_param("challenge", s); };
+      void set_hcg(const std::string &s) { set_param("hcg", s); };
+      void set_hct(const std::string &s) { set_param("hct", s); };
+   };
+
    class client_t
    {
       class impl_t

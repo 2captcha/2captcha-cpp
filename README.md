@@ -49,6 +49,7 @@ Examples of API requests for different captcha types are available on the [C++ c
     - [Tspd](#tspd)
     - [Basilisk](#basilisk)
     - [Alibaba](#alibaba)
+    - [Yidun](#yidun)
   - [Other methods](#other-methods)
     - [send / getResult](#send--get_result)
     - [balance](#balance)
@@ -554,6 +555,30 @@ Use this method to solve Alibaba captcha. Returns a JSON string with tokens (`ce
    cap.set_prefix ("prefix_value");
    cap.set_user_agent ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36");
    cap.set_proxy ("HTTPS", "login:password@IP_address:PORT");
+```
+
+### Yidun
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#yidun)</sup>
+
+Use this method to solve Yidun (NECaptcha) and obtain a token to bypass the protection.
+
+```c++
+   api2captcha::yidun_t cap;
+   cap.set_site_key ("SITE_KEY");
+   cap.set_url ("https://example.com/page-with-yidun");
+   cap.set_user_agent ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36");
+   cap.set_proxy ("HTTPS", "login:password@IP_address:PORT");
+```
+
+Optional parameters:
+
+```c++
+   cap.set_yidun_get_lib ("https://cstaticdun.126.net/load.min.js");
+   cap.set_yidun_api_server_subdomain ("cjy-captcha-api.cjyplay.com");
+   cap.set_challenge ("CHALLENGE_VALUE");
+   cap.set_hcg ("HCG_VALUE");
+   cap.set_hct ("HCT_VALUE");
 ```
 
 ## Other methods
