@@ -563,7 +563,7 @@ namespace api2captcha
       }
 
       void set_url(const std::string &s) { set_param("pageurl", s); };
-      void set_scene_id(const std::string &s) { set_param("sceneId", s); };
+      void set_scene_id(const std::string &s) { set_param("scene_id", s); };
       void set_prefix(const std::string &s) { set_param("prefix", s); };
    };
 
