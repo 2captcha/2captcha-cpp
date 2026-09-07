@@ -584,6 +584,34 @@ namespace api2captcha
       void set_hct(const std::string &s) { set_param("hct", s); };
    };
 
+   class dragdrop_t : public captcha_t
+   {
+   public:
+      dragdrop_t()
+      {
+         set_param("method", "drag_drop");
+      }
+
+      void set_body(const std::string &s) { set_param("body", s); }
+      void set_images(const std::vector<std::string> &images)
+      {
+         std::string json = "[";
+         for (size_t i = 0; i < images.size(); ++i)
+         {
+            if (i)
+               json += ",";
+            json += "\"" + images[i] + "\"";
+         }
+         json += "]";
+         set_param("images", json);
+      }
+
+      void set_hint_text(const std::string &s) { set_param("textinstructions", s); }
+      void set_language(const int language) { set_param("language", std::to_string(language)); }
+      void set_lang(const std::string &lang) { set_param("lang", lang); }
+      void set_header_acao(const int header_acao) { set_param("header_acao", std::to_string(header_acao)); }
+   };
+
    class client_t
    {
       class impl_t

@@ -50,6 +50,7 @@ Examples of API requests for different captcha types are available on the [C++ c
     - [Basilisk](#basilisk)
     - [Alibaba](#alibaba)
     - [Yidun](#yidun)
+    - [Drag & Drop](#drag--drop)
   - [Other methods](#other-methods)
     - [send / getResult](#send--get_result)
     - [balance](#balance)
@@ -579,6 +580,30 @@ Optional parameters:
    cap.set_challenge ("CHALLENGE_VALUE");
    cap.set_hcg ("HCG_VALUE");
    cap.set_hct ("HCT_VALUE");
+```
+
+### Drag & Drop
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#drag-and-drop-captcha)</sup>
+
+Use this method to solve a captcha where one or more images need to be dragged onto specific positions on a background image. Returns a pipe-separated string of coordinates, one item per image in the same order as `set_images`, for example `120,340|null|210,90`. `null` means the corresponding image should not be moved, it's not an error.
+
+```c++
+   api2captcha::dragdrop_t cap;
+   cap.set_body (api2captcha::B64::base64_encode(bodyData));
+   cap.set_images ({
+      api2captcha::B64::base64_encode(image1Data),
+      api2captcha::B64::base64_encode(image2Data)
+   });
+   cap.set_hint_text ("Drag the images to proper position");
+```
+
+Optional parameters:
+
+```c++
+   cap.set_language (1); // 0 - not specified, 1 - Cyrillic, 2 - Latin
+   cap.set_lang ("en");
+   cap.set_header_acao (1);
 ```
 
 ## Other methods
