@@ -51,6 +51,7 @@ Examples of API requests for different captcha types are available on the [C++ c
     - [Alibaba](#alibaba)
     - [Yidun](#yidun)
     - [Drag & Drop](#drag--drop)
+    - [Imperva](#imperva)
   - [Other methods](#other-methods)
     - [send / getResult](#send--get_result)
     - [balance](#balance)
@@ -605,6 +606,29 @@ Optional parameters:
    cap.set_lang ("en");
    cap.set_header_acao (1);
 ```
+
+### Imperva
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#imperva)</sup>
+
+Use this method to bypass Imperva (Incapsula) protection. Returns a JSON string with cookies organized by domain and, if present, the `User-Agent` header that must be used for further requests to the target site.
+
+```c++
+   api2captcha::imperva_t cap;
+   cap.set_url ("https://example.com/login");
+   cap.set_incapsula_script_url ("/_Incapsula_Resource?SWUDNSAI=31&xinfo=1");
+   cap.set_incapsula_cookies ("visid_incap_123456=sample; incap_ses_123_123456=sample");
+   cap.set_proxy ("HTTP", "login:password@IP_address:PORT");
+```
+
+Optional parameters:
+
+```c++
+   cap.set_reese84_url_endpoint ("https://example.com/_Incapsula_Resource?reese84=1");
+   cap.set_user_agent ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36");
+```
+
+A proxy is required for this captcha type. Some parameters are generated dynamically and may change on every page load.
 
 ## Other methods
 

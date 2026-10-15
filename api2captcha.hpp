@@ -612,6 +612,21 @@ namespace api2captcha
       void set_header_acao(const int header_acao) { set_param("header_acao", std::to_string(header_acao)); }
    };
 
+   class imperva_t : public captcha_t
+   {
+   public:
+      imperva_t()
+      {
+         set_param("method", "incapsula");
+      }
+
+      void set_url(const std::string &s) { set_param("pageurl", s); };
+      void set_incapsula_script_url(const std::string &s) { set_param("incapsula_script_url", s); };
+      void set_incapsula_cookies(const std::string &s) { set_param("incapsula_cookies", s); };
+      void set_reese84_url_endpoint(const std::string &s) { set_param("reese84_url_endpoint", s); };
+      void set_user_agent(const std::string &s) { set_param("useragent", s); };
+   };
+
    class client_t
    {
       class impl_t
